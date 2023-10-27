@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <section class="first-section">
+        <div class="video-container">
+            <video  id="myVideo" class="bg-video" autoplay loop>
+              <source src="https://sciencelib.ge/wp-content/uploads/2023/10/ბესთ.mp4" type="video/mp4" >
+            </video>
+          </div>
+        <div class="right-content">
+            <div class="sc_search-container">
+                <input type="text" class="sc_search-input" placeholder="ძიება კატალოგში. . .">
+                <i class="fas fa-search sc_search-icon"></i>
+            </div>
+            <a class="small-content" href="#">
+                <h1>გზამკვლევი</h1>
+                <p>ინფორმაცია ღია მეცნიერების შესახებ <i class="fa-solid fa-arrow-right"></i></p>
+            </a>
+            <a href="#" class="small-content">
+                <h1>ღია მეცნიერება</h1>
+                <p>ბიბლიოთეკით სარგებლობის წესები <i class="fa-solid fa-arrow-right"></i></p>
+            </a>
+            <a href="#" class="small-content">
+                <h1>გალერეა</h1>
+                <p>ბიბლიოთეკის სივრცეები და კოლექციები <i class="fa-solid fa-arrow-right"></i></p>
+            </a>
+            <button class="sc_scedule">
+                <a href="#">ბიბლიოთეკის განრიგი</a>
+            </button>
+        </div>
+    </section>
+    <h1 style="text-align: center;">ძიება ელექტრონულ რესურსებში</h1>
+    <div class="sc_main-icons">
+        <div class="sc_icon_box"></div>
+        <div class="sc_icon_box"></div>
+        <div class="sc_icon_box"></div>
+        <div class="sc_icon_box"></div>
+        <div class="sc_icon_box"></div>
+    </div>
+   
+
+
+    <script>
+        
+const searchIcon = document.querySelector('.sc_search-icon');
+const searchInput = document.querySelector('.sc_search-input');
+
+// Event listener for clicking the search icon
+searchIcon.addEventListener('click', () => {
+    performSearch();
+});
+
+// Event listener for pressing Enter key in the input field
+searchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        performSearch();
+    }
+});
+
+function performSearch() {
+    // Get the input text
+    const searchText = searchInput.value;
+
+    // Construct the search URL
+    const searchURL = `https://opac.sciencelib.ge/cgi-bin/koha/opac-search.pl?q=${encodeURIComponent(searchText)}`;
+
+    // Open the search URL in a new tab
+    window.open(searchURL, '_blank');
+}
+
+</script>
+</body>
+</html>
